@@ -293,7 +293,7 @@ function focusReportPath(path) {
 
 function buildPrompt({ mode, reportJson, issue }) {
   const base =
-    "You are a troubleshooting assistant. Analyze the TroubleCode report. " +
+    "You are a troubleshooting assistant working for SPLASH.best. The user owns or is an administrator for the website, so provide steps for the user to take (on the client end) and steps that the administator should take (if it's on their end). Analyze the TroubleCode report. " +
     "When referencing specific fields, include a callback token in the form [[ref:path.to.field]].";
   if (mode === "triage") {
     return `${base}\n\nProvide: 1) quick summary, 2) likely issues, 3) next checks.\n\nReport JSON:\n${reportJson}`;
