@@ -1,0 +1,207 @@
+$bg: #0f1117;
+$card: #171a22;
+$border: #2a2f3a;
+$text: #eef1f6;
+$muted: #9aa4b2;
+$primary: #6c5ce7;
+$secondary: #21c7a8;
+$danger: #ff6b6b;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: $bg;
+  color: $text;
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.app__header {
+  text-align: center;
+
+  h1 {
+    font-size: 2.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: $muted;
+    margin: 0;
+  }
+}
+
+.card {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+
+  span {
+    font-weight: 600;
+  }
+
+  textarea,
+  input {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid $border;
+    background: #0f131b;
+    color: $text;
+    padding: 0.75rem 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.primary {
+  background: $primary;
+  color: white;
+}
+
+.secondary {
+  background: $secondary;
+  color: #0b1117;
+}
+
+.ghost {
+  background: transparent;
+  color: $muted;
+  border: 1px solid $border;
+}
+
+.code-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+}
+
+#codeOutput {
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+}
+
+#codeMeta {
+  color: $muted;
+}
+
+.report {
+  background: #0b0f15;
+  border-radius: 14px;
+  padding: 1rem;
+  border: 1px dashed $border;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.report__group {
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 0.75rem;
+  background: #121722;
+}
+
+.report__group h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.report__raw {
+  margin: 0;
+  padding: 0.75rem;
+  background: #0c1119;
+  border-radius: 10px;
+  border: 1px solid $border;
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: $text;
+}
+
+.report__list {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.report__item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.6rem;
+  color: $text;
+
+  span:first-child {
+    color: $muted;
+  }
+}
+
+.report__multiline {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  background: #0c1119;
+  border-radius: 8px;
+  border: 1px solid $border;
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.muted {
+  color: $muted;
+}
+
+.footer {
+  text-align: center;
+  color: $muted;
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 720px) {
+  .report__item {
+    grid-template-columns: 1fr;
+  }
+
+  .code-row {
+    grid-template-columns: 1fr;
+  }
+}
