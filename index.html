@@ -10,56 +10,58 @@
     <main class="app">
       <header class="app__header">
         <h1>TroubleCode</h1>
-        <p class="subtitle">A tiny demo that collects troubleshooting context, compresses it, and lets you share it.</p>
+        <p class="subtitle">Paste a TroubleCode to interpret it, then ask the AI to triage or troubleshoot.</p>
       </header>
 
-      <section class="card">
-        <h2>1) Describe the issue</h2>
+      <section class="card card--glass">
+        <h2>1) Paste a TroubleCode</h2>
         <label class="field">
-          <span>What happened?</span>
-          <textarea id="userError" rows="4" placeholder="Describe the problem, steps to reproduce, and expected vs actual behavior."></textarea>
-        </label>
-
-        <div class="actions">
-          <button id="generateBtn" class="primary">Generate TroubleCode</button>
-          <button id="clearLogsBtn" class="ghost">Clear captured logs</button>
-        </div>
-
-        <div class="field">
-          <span>Your TroubleCode</span>
-          <div class="code-row">
-            <input id="codeOutput" readonly placeholder="Code will appear here" />
-            <button id="copyBtn" class="secondary">Copy</button>
-          </div>
-          <small id="codeMeta">Waiting for generation…</small>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>2) Paste a code to decode</h2>
-        <label class="field">
-          <span>Paste TroubleCode</span>
-          <textarea id="codeInput" rows="4" placeholder="Paste a TroubleCode here"></textarea>
+          <span>TroubleCode</span>
+          <textarea id="codeInput" rows="5" placeholder="Paste a TroubleCode here"></textarea>
         </label>
         <div class="actions">
-          <button id="decodeBtn" class="primary">Decode</button>
-          <button id="sampleBtn" class="ghost">Generate sample error</button>
+          <button id="decodeBtn" class="primary">Interpret code</button>
+          <button id="clearBtn" class="ghost">Clear</button>
         </div>
+        <small id="decodeMeta" class="meta muted">Waiting for a code…</small>
       </section>
 
-      <section class="card">
-        <h2>3) Decoded report</h2>
-        <div id="report" class="report">
-          <p class="muted">No report yet. Generate or decode a TroubleCode to see details.</p>
+      <section id="reportSection" class="card" hidden>
+        <div class="card__header">
+          <h2>2) Decoded report</h2>
+          <span id="reportMeta" class="meta"></span>
         </div>
+        <div id="report" class="report"></div>
+      </section>
+
+      <section id="aiSection" class="card" hidden>
+        <div class="card__header">
+          <h2>3) AI quick triage</h2>
+          <button id="analyzeBtn" class="secondary">Analyze report</button>
+        </div>
+        <div id="aiOutput" class="ai-output" hidden></div>
+      </section>
+
+      <section id="troubleshootSection" class="card" hidden>
+        <div class="card__header">
+          <h2>4) AI troubleshoot</h2>
+          <span class="meta muted">Describe the issue for deeper analysis.</span>
+        </div>
+        <label class="field">
+          <span>Issue description</span>
+          <textarea id="troubleshootInput" rows="4" placeholder="Explain what you saw, when it started, and what you tried."></textarea>
+        </label>
+        <div class="actions">
+          <button id="troubleshootBtn" class="primary">Run troubleshoot</button>
+        </div>
+        <div id="troubleshootOutput" class="ai-output" hidden></div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Demo only. Some fields require browser support and may be unavailable.</p>
+      <p>Interpreter-only mode. AI responses may be slow depending on the service.</p>
     </footer>
 
-    <script src="tech.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
